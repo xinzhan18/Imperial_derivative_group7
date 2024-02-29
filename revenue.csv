@@ -1,0 +1,9 @@
+,user,market,type,price,price_last,balance
+0,clubs,clubs,buy,9790,,
+1,clubs,clubs,sell,5743,9790.0,-4047.0
+2,diamonds,diamonds,buy,6057,5743.0,314.0
+3,diamonds,diamonds,sell,5115,6057.0,-942.0
+4,hearts,hearts,buy,6879,5115.0,1764.0
+5,hearts,hearts,sell,13577,6879.0,6698.0
+6,spades,spades,buy,6077,13577.0,-7500.0
+7,spades,spades,sell,9506,6077.0,3429.0
