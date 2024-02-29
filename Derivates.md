@@ -103,23 +103,25 @@ If the number of suits in hand is concentrated, it's strategic to disclose the s
 
 定价：基于公允价值，clubs早期定价偏低，后期定价回归合理范围。
 
-信息策略：私有信息持有两个clubs，4个spades。基于信息策略，首先公布了两个clubs，保留了大量的spades最后公布。同时由于spades公开信息在大多数人看来，spades公布的数量比较少，所以他的价格比较高。但是依据我的私有信息来看，spades的价格是一直overprices的，所以我在这里采用了一直sell这个仓位。同时，diamonds的价格是一直underprices的，所以我一直购买这一个diamonds。
+信息策略：私有信息持有两个clubs，4个spades。基于信息策略，首先公布了两个clubs，保留了大量的spades最后公布。基于计算的公允价值，spades是一个被overprice的。所以为了获得超额利润，我们加大了空头暴漏。
 
-下图是我的持仓变化
+diamonds是处于under price的状态，所以进行了持续购买。
+
+对于hearts，其定价在公允价值附近，定价比较合理。
 
 ![image-20240228214441153](D:\学校\Term2\Derivatives\coursework1\assets\image-20240228214441153.png)
 
-结合下图持仓图可以看出，对于spades一直sell，一共持有了大概250手的空仓。在做空过程中，根据其概率波动，进行了部分平仓。但同时因为其最终较早的被公开，空头不需要被平仓，最终获利离场。
+position management：
 
-同时，因为早期人为diamonds价值较低，所以一直在低价买入，一共买入了大概90手。
+可以看出，对于spades空头持仓250手，同时在做空过程中，根据其概率波动，进行平仓。最终由于提前较早被展示，最终空头风险暴漏转为获利获得巨额利润。
 
-对于hearts，其价格在公允价值波动，所以并没有太多的仓位。
+在游戏中后期，对于hearts持有的空头仓位，逐渐进行了平仓。最终只剩两个花色，分别是diamonds和hearts。结合风险管理策略，两者没有持有任何空头头寸，保证了收益的同时，进行了合理的风险管理。
 
 
 
-结合仓位管理策略，在游戏的中后期，我逐渐平了获胜概率大的空头仓位，例如平了hearts的空头仓位，降低了风险成本。
 
-更重要的是，我对于90手的hearts仓位进行了减仓，直到最后一轮，两者的概率都为0.5的时候，保证了两者仓位的一致，保证了预期收益的最大化。
+
+
 
 
 
@@ -134,7 +136,17 @@ If the number of suits in hand is concentrated, it's strategic to disclose the s
 | 总收益   | 90.60 |
 | bonus    | 103.6 |
 
-总体来看，所有的收益是来自来自于做空的收益。这里主要的内容都是
+
+
+收益来源分为几部分：空头暴露收益，价差收益，以及最终奖励。
+
+其中主要的盈利
+
+盈利主要来源于 spades的空头仓位的风险暴漏。因为持有较多的spade的私人信息，所以得到了更为精确的fair price。同时由于其获胜的概率比较低，以及一致处于over prices状态，因此加大了做空的仓位到达了200手。最终由于其较早的被揭露最后一张，获得了较大的收益(65.42)
+
+价差收益主要来自于，通过对于低于fair price的产品进行买入，对高于fair price的价格进行卖出。同时注意风险管理，这一部分的收益很少，只有25.18 ( hearts:0.42,diamonds 9.24, clubs:15.52)。其中hearts的收益最少，说明其定价比较符合fair prices。
+
+最终持有13手的diamonds，获得了13的payoff收益
 
 
 
@@ -142,23 +154,11 @@ If the number of suits in hand is concentrated, it's strategic to disclose the s
 
 反思：
 
-如果通过简单的买低卖高，那么带来的收益是比较稳定的。但是无法获得大额收益
+如果市场定价合理，那么是没有办法可以获得较高的价差套利。同时价差套利获得收益比较稳定，无法获得较高的超额利润
 
+如果想要获得较高的超额利润，需要加大风险暴漏，对于获胜概率最低的花色进行sell，最终才可以获利
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+仓位管理很重要，尤其是游戏的后半程，当只有两个玩家的时候，还持有空头仓位很容陷亏损的情况，因此要及时降低空头暴漏
 
 
 
@@ -270,4 +270,40 @@ sell 会产生分析风险暴漏，所以如果到达最后只剩两个产品存
 
 
 
+
+### 私有信息如何影响市场
+
+
+
+下面是一个案例解释，私有信息是如何影响市场的。 在本次市场中，clubs market maker持有4个spades的私有信息，并且选择了在最后4轮才公布所有信息。其他的market  maker并没有持有任何spades的私有信息。因此我们分别计算了两条fair price曲线。第一个是基于市场上公开信息来计算的public fair prices，因为对于其他三个market maker 并没有人持有spades，所以他们的获取的信息是一致的都是灰色线 public infomation。而对于 club market marker，根据其持有的消息计算出来的private fair price.
+
+通过这个图片可以看出，基于spades market maker的定价符合基于公开信息的定价。而对于拥有更多消息的clubes market maker来说，spades的定价是overprice的，所以可以通过不断做空其使其回归正常的价格范围。随着公开信息的不断增加，private fairprice 开始逐渐于public fair price一致，这说明私有信息再也无法影响市场了
+
+
+
+![image-20240229023213329](D:\学校\Term2\Derivatives\coursework1\assets\image-20240229023213329.png)
+
+另一个比较有意思的点是，由于私人信息的对于spades交易量的影响。由于其他的用户基于公开信息判断，spades的概率最高，所以疯狂的买入sapdes 进一步提高了spades的价格。而club market maker 发现价格的进一步升高，导致更被over prices，所以增加了空头的数量。我们可以从下图可以看到spades的交易量随着时间的变化。spades的库存从21轮前，库存波动变化非常激烈，说明市场存在激烈的交易，两者无法达成明确的共识。随着私有信息被逐渐公布，对于spades的概率认知逐渐趋于一致，可以看出21轮后，spades库存运作方向趋于一致，说明市场基本达成了形成了共识
+
+![image-20240229030242131](D:\学校\Term2\Derivatives\coursework1\assets\image-20240229030242131.png)
+
+
+
+
+
+### 价差会影响市场流动性
+
+
+
+|        | 平均价差 | 交易量 | max_spread |
+| ------ | -------- | ------ | ---------- |
+| trade1 | 6.8788   | 1981   | 10         |
+| trade2 | 3.312·   | 2525   | 4          |
+|        |          |        |            |
+
+
+
+价差影响了市场的流动性。我们进行了两次价差对比，发现价差越大，用户的交易量变得很低，而较低的价差可以更好的促进流动性。
+
+因为如果价差过大，那么ask于bid之间的区间便会变得更宽，这就意味者更有可能击中fair price。而价差更小则促进了流动性
 
